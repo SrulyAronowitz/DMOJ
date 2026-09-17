@@ -1,0 +1,35 @@
+# DMOJ Solutions
+
+A collection of solutions to problems from the **DMOJ Online Judge**, written in various languages.  
+Each solution is self‑contained and designed to run efficiently under judge constraints.
+
+---
+
+## Structure
+
+DMOJ/
+├── Rust/src/bin/   # Rust solutions
+├── PowerShell/     # PowerShell solutions
+└── README.md
+
+---
+
+## Running Solutions
+
+### Rust
+
+cargo build --release
+./target/release/<problem> < input.txt
+
+---
+
+## Notes
+
+- All solutions follow judge‑friendly input/output formats.  
+- Code is kept minimal and focused on correctness.
+
+---
+
+## License
+
+MIT License.
