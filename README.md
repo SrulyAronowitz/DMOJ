@@ -8,8 +8,9 @@ Each solution is self‑contained and designed to run efficiently under judge co
 ## Structure
 
 DMOJ/
-├── Rust/src/bin/   # Rust solutions
-├── PowerShell/     # PowerShell solutions
+├── Rust/src/bin/\<problem slug\>.rs   # Rust solutions
+├── \<other language\>/     # Replace <other language> with name of programming language solution
+|
 └── README.md
 
 ---
@@ -19,7 +20,7 @@ DMOJ/
 ### Rust
 
 cargo build --release
-./target/release/<problem> < input.txt
+./target/release/\<problem slug\> < input.txt
 
 ---
 
