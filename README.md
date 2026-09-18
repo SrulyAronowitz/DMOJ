@@ -19,7 +19,7 @@ DMOJ/\
 
 ```bash
 cd ./DMOJ/Rust
-cargo run --bin <problem slug> --release < input.txt
+cargo run --bin <problem slug> --release < ./inputs/lkp18c2p1.txt
 ```
 
 ---
