@@ -7,11 +7,9 @@ Each solution is self‑contained and designed to run efficiently under judge co
 
 ## Structure
 
-DMOJ/
-├── Rust/src/bin/\<problem slug\>.rs   # Rust solutions
-├── \<other language\>/     # Replace <other language> with name of programming language solution
-|
-└── README.md
+DMOJ/\
+&ensp;|\
+&ensp;\\-- Rust/src/bin/\<problem slug>.rs&emsp;# Rust solutions
 
 ---
 
@@ -19,8 +17,10 @@ DMOJ/
 
 ### Rust
 
-cargo build --release
-./target/release/\<problem slug\> < input.txt
+```bash
+cd ./DMOJ/Rust
+cargo run --bin <problem slug> --release < input.txt
+```
 
 ---
 
@@ -33,4 +33,5 @@ cargo build --release
 
 ## License
 
-MIT License.
+This project is licensed under the **MIT License**.
+See [`LICENSE`](LICENSE) for details.
