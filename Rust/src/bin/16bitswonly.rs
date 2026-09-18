@@ -12,7 +12,7 @@ fn main() {
         problem_input.clear();
         std::io::stdin().read_line(&mut problem_input).unwrap();
 
-        let mut str_values = problem_input.split_whitespace().into_iter();
+        let mut str_values = problem_input.split_whitespace();
 
         let expression_values = (
             str_values.next().unwrap().parse::<i32>().unwrap(),
