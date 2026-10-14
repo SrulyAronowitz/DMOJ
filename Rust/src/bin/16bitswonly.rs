@@ -1,4 +1,4 @@
-use std::io::{self, Write, BufWriter};
+use std::io::{self, BufWriter, Write};
 
 fn main() {
     let mut writer = BufWriter::new(io::stdout().lock());
@@ -16,8 +16,8 @@ fn main() {
 
         let expression_values = (
             str_values.next().unwrap().parse::<i32>().unwrap(),
-            str_values.next().unwrap().parse::<i32>().unwrap(), 
-            str_values.next().unwrap().parse::<i64>().unwrap()
+            str_values.next().unwrap().parse::<i32>().unwrap(),
+            str_values.next().unwrap().parse::<i64>().unwrap(),
         );
 
         if ((expression_values.0 as i64) * (expression_values.1 as i64)) == expression_values.2 {
