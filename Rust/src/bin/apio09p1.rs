@@ -1,4 +1,4 @@
-use std::{io::BufRead, vec};
+use std::{io::BufRead, num::ParseIntError, vec};
 
 type OilAmount = u32;
 
@@ -75,6 +75,35 @@ impl Grid {
     }
 }
 
+impl TryFrom<Vec<u8>> for Grid {
+    type Error = ParseIntError;
+
+    fn try_from(bytes_vector: Vec<u8>) -> Result<Self, Self::Error> {
+        let mut heat_coordinates = Vec::with_capacity(bytes_vector.len());
+
+        for row_value in bytes_vector.iter() {
+            let mut row_vec = vec![];
+
+            for value in row_value.to_string().split_whitespace() {
+                let parsed_oil_amount = value.parse::<OilAmount>();
+
+                match parsed_oil_amount {
+                    Ok(oil_amount) => {
+                        row_vec.push(oil_amount);
+                    }
+                    Err(inner_error) => {
+                        return Err(inner_error);
+                    }
+                }
+            }
+
+            heat_coordinates.push(row_vec);
+        }
+
+        Ok(Grid::PrefixSum(heat_coordinates))
+    }
+}
+
 struct Map {
     grid: Grid,
     constraints: MapConstraints,
@@ -94,8 +123,18 @@ fn main() {
     };
 
     // Collect grid values and build grid
+    let mut input_vector = Vec::with_capacity(map_constraints.height);
+    let grid = Grid::try_from(input_vector).unwrap();
 
     // Build map object
+    let mut map = Map {
+        grid,
+        constraints: map_constraints,
+    };
+
+    // Calculate prefix and block values
+    map.grid.to_prefix_sums(&map.constraints).unwrap();
+    map.grid.to_block_values(&map.constraints).unwrap();
 
     // Divide grid
 }
